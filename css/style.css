@@ -1,0 +1,206 @@
+html {
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+body {
+    
+    font-family: "Prompt", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu {
+    padding-top: 60px;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+}
+
+.menu__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.layers {
+    height: 500vh;
+}
+
+.layer {
+    position: fixed;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-timeline: scroll();
+    animation-fill-mode: both;
+    animation-range: 0 500vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layer--5 {
+    z-index: 5;
+    animation-name: layer-5;
+}
+
+@keyframes layer-5 {
+    to {
+        scale: 1.4;
+    }
+}
+
+.layer--4 {
+    z-index: 4;
+    animation-name: layer-4;
+}
+
+@keyframes layer-4 {
+    to {
+        scale: 1.35;
+    }
+}
+
+.layer--3 {
+    z-index: 3;
+    animation-name: layer-3;
+}
+
+@keyframes layer-3 {
+    to {
+        scale: 1.5;
+    }
+}
+
+.layer--2 {
+    z-index: 2;
+    animation-name: layer-2;
+}
+
+@keyframes layer-2 {
+    to {
+        scale: 2;
+    }
+}
+
+.layer--1 {
+    z-index: 1;
+    animation-name: layer-1;
+}
+
+@keyframes layer-1 {
+    to {
+        scale: 2.5;
+    }
+}
+
+.layers__text {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name: text;
+    animation-timing-function: linear;
+    animation-timeline: scroll();
+    animation-fill-mode: both;
+    animation-range: 150vh 350vh;
+    opacity: 0;
+}
+
+@keyframes text {
+    to {
+        opacity: 1;
+    }
+}
+
+.title {
+    padding: 0;
+    margin: 0;
+    font-family: "Gravitas One", serif;
+    font-weight: normal;
+    font-size: 120px;
+    text-transform: uppercase;
+}
+
+.text {
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+}
+
+.arrows {
+    margin: 0 auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: rgba(30, 30, 30, 0.7);
+}
+
+.arrow {
+    margin: 23px auto 0;
+    position: relative;
+    width: 10px;
+    height: 10px;
+}
+
+.arrow::after, .arrow::before {
+    content: '';
+    position: absolute;    
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    width: 100%;
+    height: 100%;
+    animation: arrow 3s linear infinite;     
+}
+
+.arrow::after {    
+    animation: arrow 3s linear infinite -2s;
+}
+
+@keyframes arrow {
+    0% {
+        opacity: 0;
+        transform: translate(0, -10px) rotate(-45deg);
+    }
+    10%, 90% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 10px) rotate(-45deg);
+    }
+}
